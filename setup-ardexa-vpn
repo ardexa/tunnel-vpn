@@ -766,6 +766,10 @@ main() {
 
     updatePiVPN
 
+    # Tell iface-manager to ignore the tunnel interface
+    mkdir -p /etc/netctl/ignore
+    touch /etc/netctl/ignore/tun0
+
     echo "::: Restarting services..."
     # Start services
     case ${PLAT} in
