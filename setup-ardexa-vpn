@@ -258,8 +258,8 @@ stopServices() {
     $SUDO echo ":::"
     $SUDO echo -n "::: Stopping OpenVPN service..."
     case ${PLAT} in
-        Ubuntu|Debian|*vuan)
-            $SUDO service openvpn stop || true
+        Debian)
+            $SUDO systemctl stop openvpn@server || true
             ;;
         *)
             $SUDO systemctl stop openvpn.service || true
@@ -604,14 +604,7 @@ if \$programname == 'ovpn-server' then stop" | $SUDO tee /etc/rsyslog.d/30-openv
 }" | $SUDO tee /etc/logrotate.d/openvpn > /dev/null
 
   # Restart the logging service
-  case ${PLAT} in
-    Ubuntu|Debian|*vuan)
-      $SUDO service rsyslog restart || true
-      ;;
-    *)
-      $SUDO systemctl restart rsyslog.service || true
-      ;;
-  esac
+  $SUDO systemctl restart rsyslog.service || true
 }
 
 finalExports() {
@@ -772,8 +765,9 @@ main() {
     echo "::: Restarting services..."
     # Start services
     case ${PLAT} in
-        Ubuntu|Debian|*vuan)
-            $SUDO service openvpn start
+        Debian)
+            $SUDO systemctl enable openvpn@server
+            $SUDO systemctl start openvpn@server
             ;;
         *)
             $SUDO systemctl enable openvpn.service
