@@ -62,8 +62,8 @@ And then check the status again.
 
 ### Installation
 
-Launch the install script. The whole process should take no more than a few
-minutes, depending on your connection speed
+Launch the install script using REMOTE SHELL. The whole process should take no
+more than a few minutes, depending on your connection speed
 ```
 /tmp/setup-ardexa-vpn
 ```
