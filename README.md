@@ -101,6 +101,7 @@ name of the profile
 ```
 pivpn add nopass -n name -d 1080
 ```
+**NB** Please ignore any errors this returns.
 
 Use GET FILES to download the new profile
 ```
@@ -117,17 +118,10 @@ https://openvpn.net/client-connect-vpn-for-windows/
 You will also need to have the `ardexa-tunnel` installed: https://ardexa.zendesk.com/hc/en-us/articles/360001052536-Installing-the-Tunnel-Client
 
 ## Open the VPN
-Browse to the TUNNEL tab for the device you are connecting to and enter `1194`
-for both the Remote and Local Ports. Leave the IP as `127.0.0.1`.
-
-Click "Copy to Clipboard" and paste the command into a command shell. It will look something like this
-
-```
-ardexa-tunnel 123123123 57aff4a4-d6c8-462d-88b3-d889c65c0f9e 127.0.0.1 1194 1194 -e david.mohr@ardexa.com
-```
-
-* Run the command and then enter you Ardexa Web App password.
+* Browse to the TUNNEL tab for the device you are connecting to and enter `1194` for both the Remote and Local Ports. Leave the IP as `127.0.0.1`
+* Click `Copy to Clipboard`
+* Paste the command into a command shell, run the command and then enter your Ardexa Web App password
 * Once the Ardexa Tunnel is connected, then double-click the `ovpn` file you downloaded earlier to launch the OpenVPN Client
-* Check the imported details and then click Connect
+* Check the box `Connect after import` and then click `Add`
 
 Your VPN is now connected and you can access any IP on the remote network as if you were connected directly!
