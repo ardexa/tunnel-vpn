@@ -519,7 +519,11 @@ confNetwork() {
 
             if $SUDO dpkg --compare-versions "$INSTALLED_UFW" ge "$MINIMUM_UFW"; then
                 # Don't forward everything, just the traffic originated from the VPN subnet
-                $SUDO ufw route insert 1 allow in on tun0 from 10.8.0.0/24 out on "$IPv4dev" to any >/dev/null
+                if [[ $($SUDO ufw status | wc -l) -eq 1 ]]; then
+                    $SUDO ufw route allow in on tun0 from 10.8.0.0/24 out on "$IPv4dev" to any >/dev/null
+                else
+                    $SUDO ufw route insert 1 allow in on tun0 from 10.8.0.0/24 out on "$IPv4dev" to any >/dev/null
+                fi
                 echo 0 > /tmp/OLD_UFW
             else
                 # This ufw version does not support route command, fallback to policy change
