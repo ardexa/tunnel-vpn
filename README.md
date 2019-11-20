@@ -71,7 +71,7 @@ more than a few minutes, depending on your connection speed
 /tmp/setup-ardexa-vpn
 ```
 
-## Site Specific Configuration
+## Site Specific Routing
 Once the installation is complete, there are some final tweaks required before
 you can start issuing keys.
 
@@ -80,16 +80,13 @@ Using REMOTE SHELL, run:
 echo route-nopull >> /etc/openvpn/easy-rsa/pki/Default.txt
 ```
 
-By default, **ALL** your traffic will travel over the VPN. We strongly recommend
-only routing a limited subnet to the remote site.
-
-To add this route, update the following command, replacing the variables to
-match your site configuration, and then run it using REMOTE SHELL
+Update the following command, replacing the variables to match your site
+configuration, and then run it using REMOTE SHELL
 ```
 echo route $NETWORK_ADDR $SUBNET_MASK >> /etc/openvpn/easy-rsa/pki/Default.txt
 ```
 
-Where `$NETWORK_ADDR` is the first address of the network segment. For
+Where `$NETWORK_ADDR` is the first address of the network range. For
 example:
 ```
 echo route 172.16.10.0 255.255.255.0 >> /etc/openvpn/easy-rsa/pki/Default.txt
