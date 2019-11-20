@@ -15,12 +15,12 @@ on how to do this: https://ardexa.zendesk.com/hc/en-us/articles/360000328335
 
 The structure of this file is very strict.
 
-* *DO NOT* Use spaces anywhere
-* *DO NOT* Change the character encoding (ASCII or UTF8 only)
-* *DO NOT* Change the line endings (Windows users will need to be careful)
+* **DO NOT use Notepad**.
+* **DO NOT** Use spaces anywhere
+* **DO NOT** Change the character encoding (ASCII or UTF8 only)
+* **DO NOT** Change the line endings (Windows users will need to be careful)
 
-For Windows users, please use a _modern_ text editor. *DO NOT use Notepad*. We
-recommend
+For Windows users, please use a _modern_ text editor.  We recommend
 * Notepad++
 * Sublime Text
 * Atom
@@ -77,7 +77,7 @@ Using REMOTE SHELL, run:
 echo route-nopull >> /etc/openvpn/easy-rsa/pki/Default.txt
 ```
 
-By default, *ALL* your traffic will travel over the VPN. We strongly recommend
+By default, **ALL** your traffic will travel over the VPN. We strongly recommend
 only routing a limited subnet to the remote site.
 
 To add this route, update the following command, replacing the variables to
