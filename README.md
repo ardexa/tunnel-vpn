@@ -15,16 +15,19 @@ on how to do this: https://ardexa.zendesk.com/hc/en-us/articles/360000328335
 
 The structure of this file is very strict.
 
-* **DO NOT use Notepad**.
+---
+:warning: **DO NOT use Notepad or Wordpad**.
+
+For Windows users, please use a _modern_ text editor.  We recommend
+* Atom: https://atom.io
+* Notepad++
+* Sublime Text
+* VS Code
+---
+
 * **DO NOT** Use spaces anywhere
 * **DO NOT** Change the character encoding (ASCII or UTF8 only)
 * **DO NOT** Change the line endings (Windows users will need to be careful)
-
-For Windows users, please use a _modern_ text editor.  We recommend
-* Notepad++
-* Sublime Text
-* Atom
-* VS Code
 
 Replace `__IFACE__` with the Ardexa Linux interface name you wish to use with
 the VPN. To get a list of interface names, run `ip a` via the REMOTE SHELL.
