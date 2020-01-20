@@ -783,6 +783,14 @@ main() {
             ;;
     esac
 
+    # UFW starts before network.target and the forwarding rules break because
+    # tun0 doesn't exist until AFTER OpenVPN has started. Therefore, force UFW
+    # to reload after OpenVPN is ready. Can be applied to openvpn.service since
+    # openvpn@.service depends on it.
+    if ! grep -q ExecStartPost.*ufw /lib/systemd/system/openvpn.service; then
+        sed -i '/ExecStart=/a ExecStartPost=/usr/sbin/ufw reload' /lib/systemd/system/openvpn.service
+    fi
+
     # Ensure that cached writes reach persistent storage
     echo "::: Flushing writes to disk..."
     sync
